@@ -1,18 +1,18 @@
-import React, {Component} from "react";
+import React, { useState } from "react";
 import styles from './Calendar.module.css'
 import CalendarHeader from "./CalendarHeader";
 import CalendarBody from "./CalendarBody";
+import CommentsLoader from "./Comments";
 
-class Calendar extends Component {
-
-  render(){
+function Calendar() {
+    const [startDate, setStartDate] = useState(new Date())
     return(
       <div className={styles.container}>
-        <CalendarHeader/>
-        <CalendarBody/>
+        <CalendarHeader startDate={startDate}/>
+        <CalendarBody startDate={startDate}/>
+        <CommentsLoader/>
       </div>
     )
-  }
 }
 
 export default Calendar;

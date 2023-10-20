@@ -1,46 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./Time.module.css"
 
-class Time extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      time : new Date()
-    }
-  }
+function Time ({ startDate }) {
+  const [date, setDate] = useState(startDate);
 
-  start = () => {
-    this.idInterval = setInterval(() => {
-      const { time } = this.state;
-
-      const newTime = new Date(time.getTime() + 1000);
-      this.setState({ time: newTime});
+  useEffect(() => {
+    let timerId =  null;
+    // console.log("додано ефект")
+    // console.log(date)
+    timerId = setInterval(() => {
+      const newTime = date.getTime() + 1000;
+      // console.log(newTime);
+      setDate(new Date(newTime));
     }, 1000);
-  }
 
-  stop = () => {
-    clearInterval(this.idInterval);
-  }
-
-  componentDidMount() {
-    this.start();
-  }
+    return() => {
+      clearInterval(timerId);
+      // console.log("Видалено ефект")
+    }
+  }, [date]);
 
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-    this.stop();
-  }
-
-  render() {
-    const { time } = this.state;
-    
-    return(
+  return(
       <div className={styles.timer}>
-        {time.toLocaleTimeString('en-GB')}
+        {date.toLocaleTimeString('en-GB')}
       </div>
-    )
-  }
+  )
 }
 
 export default Time;

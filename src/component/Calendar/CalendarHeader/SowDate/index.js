@@ -1,23 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState } from "react";
 import { format } from "date-fns";
 
-class ShowDate extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      date: new Date()
-    }
-  }
-
-  render() {
-    const { date } = this.state;
+function ShowDate({ startDate }) {
+  // const [date, setDate] = useState(new Date());
 
     return(
       <>
-        {format(date, "eeee, MMMM d yyyy")}
+        {format(startDate, "eeee, MMMM d yyyy")}
       </>
     )
-  }
 }
 
 export default ShowDate;
