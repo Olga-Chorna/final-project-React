@@ -1,8 +1,8 @@
 import { set } from "date-fns";
 import React from "react";
 import { useState, useEffect } from "react";
-import { FaTrashAlt } from "react-icons/fa";
 import AddTask from "./AddTask";
+import TasksList from "./TasksList";
 
 export default function Tasks({date}){
   const [tasks, setTasks] = useState([]);
@@ -22,6 +22,9 @@ export default function Tasks({date}){
       localStorage.setItem(date, JSON.stringify(tasks));
     }
   }, [tasks])
+
+  useEffect(() => {}, []) 
+
 
   const addTask = (task) => {
     const lenght = tasks.length;
@@ -50,32 +53,20 @@ export default function Tasks({date}){
 
   return(
     <main>
-      <h2>To Do Tasks:</h2>
+      <h3>Today is: {date}</h3>
+      <h1>You need to do:</h1>
       <AddTask
         newTask={newTask}
         setNewTask={setNewTask}
         handleSubmit={handleSubmit}
       />
       {tasks.length ? (
-         <ul>
-         {tasks.map((task) => (
-           <li key={task.id}>
-             <input
-               type='checkbox'
-               onChange={() => handleCheck(task.id)}
-               checked={task.checked}
-             />
-             <label>{task.task}</label>
-             <FaTrashAlt
-               onClick={() => handleDelete(task.id)} 
-               role='button' 
-               tabIndex='0'
-             />
-           </li>
-         ))}
-       </ul>
-      ) : (
-        <p>There are no tasks to do!</p>
+          <TasksList tasks={tasks}
+                      handleCheck={handleCheck}
+                      handleDelete={handleDelete}
+          />
+        ) : (
+          <p>There are no tasks to do!</p>
       )}
     </main>
   )

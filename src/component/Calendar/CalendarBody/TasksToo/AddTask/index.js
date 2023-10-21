@@ -1,11 +1,11 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa"
+import styles from "./AddTask.module.css"
 
 export default function AddTask({ newTask, setNewTask, handleSubmit }) {
 
   return (
-    <form className="addForm" onSubmit={handleSubmit}>
-      <label htmlFor="addForm">Add Task</label>
+    <form className={styles.addForm} onSubmit={handleSubmit}>
       <input
         autoFocus
         id='addTask'
