@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
-import Tasks from "../TasksToo";
+import Tasks from "../TasksThree";
 // import AllDays from "./AllDays";
 import "./style.css"
 
@@ -17,7 +17,7 @@ function MonthDisplay ({ startDate }) {
     setDateForId(id);
   },[])
 
-  console.log(dateForId);
+  // console.log(dateForId);
 
   const changeDateForId = (id) => setDateForId(id);
 
@@ -34,7 +34,7 @@ function MonthDisplay ({ startDate }) {
       let day = lastDateofLastMonth - i + 1;
         // const id = new Date(currYear, currMonth - 1, day).getTime().toString;
         const id = `${currYear}-${currMonth + 1}-${day}`
-        console.log(id);
+        // console.log(id);
         liTag.push(<li className="inactive" onClick={() => changeDateForId(id)}>{`${lastDateofLastMonth - i + 1}`}</li>);
     }
 

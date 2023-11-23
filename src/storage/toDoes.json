@@ -1,14 +1,9 @@
-[
-  {
-    "id":1,
-    "value": "feed the cat"
-  },
-  {
-    "id":2,
-    "value": "wash the dog"
-  },
-  {
-    "id":3,
-    "value": "take a walk"
-  }
-]
+{
+    "2023-10-19":[{"id": 1, "checked": false, "task": "Take a walk"}],
+    "2023-10-21":[
+        {"id": 4, "checked": false, "task": "lecture"},
+        {"id": 5, "checked": false, "task": "Lecture"}
+      ],
+      "2023-11-23":[{"id": 1, "checked": false, "task": "Ask about local server"}]
+
+}

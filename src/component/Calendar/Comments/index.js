@@ -4,19 +4,20 @@ import { useLoadData } from '../../../hooks';
 const CommentsLoader = () => {
 
   const { data, isLoading, error } = useLoadData();
-  // console.log(data)
+  console.log(data)
 
-  const toDoList = data.map(task => (
-    <li key={task.id}>
-      <h4>{task.value}</h4>
-    </li>
-  ))
+  // const toDoList = data.map(task => (
+  //   <li key={task.id}>
+  //     <h4>{task.value}</h4>
+  //   </li>
+  // ))
   return (
     <div>
-      <h2>То DO:</h2>
+      To DOOOOOOO!!!
+      {/* <h2>То DO:</h2>
       {isLoading && <div>LOADING...</div>}
       {error && <div>ERROR</div>}
-      {toDoList}
+      {toDoList} */}
     </div>
   );
 }

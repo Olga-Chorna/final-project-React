@@ -4,7 +4,7 @@ const router = express.Router();
 const fs = require('fs');
 const filePath = `${__dirname}/../storage/toDoes.json`
 
-function getPB() {
+function getTD() {
       const rawData = fs.readFileSync(filePath);
           if (0 === rawData.length) {
                     return [];    
@@ -12,7 +12,7 @@ function getPB() {
       return JSON.parse(rawData);}
 
 router.get('/', (req, res) => {
-  res.json(getPB());
+  res.json(getTD());
 });
 
 

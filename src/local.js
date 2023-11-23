@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-const pbRouter = require('./routes/toDoes');
-app.use('/toDoes', pbRouter)
+const toDoRouter = require('./routes/toDoes');
+app.use('/toDoes', toDoRouter)
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, function() {
   console.log(`Server listening on ${port}. Ctrl-C to stop`);
 })
